@@ -1,0 +1,46 @@
+@import url("https://fonts.googleapis.com/css2?family=Young+Serif&display=swap");
+* {
+  margin: 0;
+}
+
+body {
+  background-color: rgb(164, 164, 161);
+  position: relative;
+  font-family: "Young Serif", serif;
+}
+body .count {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+}
+body main {
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+body main button {
+  border: none;
+  padding: 20px;
+  border-radius: 5px;
+  background-color: rgb(109, 108, 108);
+  color: white;
+  margin: 20px;
+  width: 50%;
+  font-size: 60px;
+}
+body main p {
+  letter-spacing: 2px;
+  background-color: beige;
+  border-radius: 10px;
+  margin-bottom: 15px;
+  margin-top: 10px;
+  width: 50%;
+}
+body main img {
+  width: 20vw;
+  height: 30vh;
+  border-radius: 10px;
+  border: 1px solid rgba(0, 0, 0, 0.201);
+}/*# sourceMappingURL=style.css.map */
