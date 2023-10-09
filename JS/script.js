@@ -27,30 +27,42 @@ function getInfo() {
     test()
         .then((response) => response.json())
         .then((json) => {
-            let body = document.querySelector('body')
 
+            
+            let body = document.querySelector('body')
+            
             let p = document.createElement('p')
             let img = document.createElement('img')
             let quoteP = document.createElement('p')
-
+            
             let author = json.author
             let photo =  json.photo
             let quote = json.quote
-
+            
             p.textContent = author
             img.src = photo
             quoteP.textContent = quote
-
+            
             main.appendChild(p)
             main.appendChild(img)
             main.appendChild(quoteP)
 
+            let trimmed = author.trimStart();
+            
             if (img.getAttribute('src') == "") {
                 img.src = "./img/NoImg.png"
             }
+            /* let ageFetch = () => fetch('https://api.agify.io/?name=' + trimmed)
+            
+            ageFetch()
+            .then((response) => response.json())
+            .then((json) => {
+                console.log(json.age);
+                console.log(trimmed);
+            }) */
         })
-            resolve('Done');
-          }, 1000);
+        resolve('Done');
+    }, 1000);
     })
 }
 
@@ -66,9 +78,20 @@ p.classList = 'count'
 document.body.appendChild(p)
 
 btn.addEventListener("click", () => {
+    let body = document.querySelector('body')
+    let loader = document.createElement('div')
+    let loaderContainer = document.createElement('div')
+    loader.classList = 'loader'
+    loaderContainer.classList = 'container'
+    let html = document.querySelector('html')
+    html.appendChild(loaderContainer)
+    loaderContainer.appendChild(loader)
+    setTimeout(() => {
+        html.removeChild(loaderContainer) 
+    }, 1000);
     count++
     p.textContent = 'Count: ' + count
-
+    
     try {
         test()
     } catch (error) {
